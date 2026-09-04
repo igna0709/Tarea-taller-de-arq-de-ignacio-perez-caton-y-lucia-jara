@@ -22,7 +22,15 @@ TABLA: ALUMNO-MATERIA
 ->ID_Paciente,
 ->ID_Medico
 ->);
-5)  Esto no, nos lo explicaron 
+5) SELECT 
+    p.Nombre AS Nombre_Paciente,
+    t.FechaHora,
+    m.Nombre AS Nombre_Medico
+FROM Turnos t
+JOIN Pacientes p ON t.ID_Paciente = p.ID_Paciente
+JOIN Medicos m ON t.ID_Medico = m.ID_Medico
+WHERE t.FechaHora < NOW()
+ORDER BY t.FechaHora DESC;
 6)	 a) El procesador de consultas: La función que cumple es de poder hacerle una consulta el procesador (por ejemplo, que nos de tal información de tal libro) y que este nos de exactamente lo que le pedimos.
 	  b)El catalogo de datos: La función que cumple es que almacena todos los datos que el usuario o nosotros le ingresamos dentro.
 7)  Esto no, nos lo explicaron 
